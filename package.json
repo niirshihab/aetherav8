@@ -1,6 +1,5 @@
 {
   "devDependencies": {
-    "husky": "^8.0.0",
     "jest": "^29.7.0"
   },
   "scripts": {
