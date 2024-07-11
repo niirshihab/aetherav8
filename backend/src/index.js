@@ -5,11 +5,9 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = process.env.PORT || 5006;
 
 app.get('/', (req, res) => {
   res.send('API is running...');
@@ -17,4 +15,18 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+});
+const express = require('express');
+const bodyParser = require('body-parser');
+const authRoutes = require('./routes/auth');
+
+const app = express();
+
+app.use(bodyParser.json());
+
+app.use('/api/auth', authRoutes);
+
+const PORT = process.env.PORT || 5006;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
